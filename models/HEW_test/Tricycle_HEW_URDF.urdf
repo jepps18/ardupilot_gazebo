@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="Tricycle_HEW_URDF">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.0179147475198466 0.00819042349452611 -5.19073115833841E-05"
+        rpy="0 0 0" />
+      <mass
+        value="2.40036266027336" />
+      <inertia
+        ixx="0.0213869024496027"
+        ixy="1.89991849092823E-09"
+        ixz="1.44203262798969E-06"
+        iyy="0.0542879227223958"
+        iyz="1.97467103185079E-08"
+        izz="0.0333136909388032" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/base_link_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="Arm_Link">
+    <inertial>
+      <origin
+        xyz="0.055393 -0.00046808 0.050229"
+        rpy="0 0 0" />
+      <mass
+        value="0.021131" />
+      <inertia
+        ixx="7.7995E-05"
+        ixy="2.6771E-07"
+        ixz="1.8645E-05"
+        iyy="0.00010972"
+        iyz="-1.5689E-07"
+        izz="3.2398E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/Arm_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/Arm_Link_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Arm_Link_cont"
+    type="revolute">
+    <origin
+      xyz="-0.127 0 -0.0015679"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Arm_Link" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="1.745"
+      upper="-1.745"
+      effort="0"
+      velocity="20" />
+  </joint>
+  <link
+    name="Rear_Wheels_Link">
+    <inertial>
+      <origin
+        xyz="2.6923E-15 -7.3355E-17 1.707E-15"
+        rpy="0 0 0" />
+      <mass
+        value="1.1992" />
+      <inertia
+        ixx="0.001439"
+        ixy="-1.7333E-20"
+        ixz="-5.5793E-20"
+        iyy="0.0023958"
+        iyz="1.8973E-20"
+        izz="0.001439" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/Rear_Wheels_Link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/Rear_Wheels_Link_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Rear_Wheels_cont"
+    type="continuous">
+    <origin
+      xyz="0.18415 0 -0.08635"
+      rpy="0 0 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Rear_Wheels_Link" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="Front_Wheel">
+    <inertial>
+      <origin
+        xyz="-0.003311 1.0195E-06 0.0033365"
+        rpy="0 0 0" />
+      <mass
+        value="0.33388" />
+      <inertia
+        ixx="0.00011765"
+        ixy="4.0231E-12"
+        ixz="3.047E-06"
+        iyy="0.00033015"
+        iyz="3.8519E-10"
+        izz="0.00033254" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/Front_Wheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0 0.45098 0.93725 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://Tricycle_HEW_URDF/meshes/Front_Wheel_col.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="Front_Wheel_Cont"
+    type="continuous">
+    <origin
+      xyz="-0.127 0 -0.086868"
+      rpy="0 0 -0.0084418" />
+    <parent
+      link="base_link" />
+    <child
+      link="Front_Wheel" />
+    <axis
+      xyz="-1 0 0" />
+  </joint>
+</robot>

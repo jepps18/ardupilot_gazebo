@@ -1,0 +1,187 @@
+<?xml version='1.0'?>
+<sdf version='1.6'>
+  <model name='HEW_test'>
+    <link name='base_link'>
+      <pose frame=''>0 0 0 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.017915 0.00819 -5.2e-05 0 -0 0</pose>
+        <mass>2.40036</mass>
+        <inertia>
+          <ixx>0.0213869</ixx>
+          <ixy>1.89992e-09</ixy>
+          <ixz>1.44203e-06</ixz>
+          <iyy>0.0542879</iyy>
+          <iyz>1.97467e-08</iyz>
+          <izz>0.0333137</izz>
+        </inertia>
+      </inertial>
+      <collision name='base_link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/base_link_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='base_link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/base_link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <link name='Arm_Link'>
+      <pose frame=''>-0.127 0 -0.001568 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0.055393 -0.000468 0.050229 0 -0 0</pose>
+        <mass>0.021131</mass>
+        <inertia>
+          <ixx>7.7995e-05</ixx>
+          <ixy>2.6771e-07</ixy>
+          <ixz>1.8645e-05</ixz>
+          <iyy>0.00010972</iyy>
+          <iyz>-1.5689e-07</iyz>
+          <izz>3.2398e-05</izz>
+        </inertia>
+      </inertial>
+      <collision name='Arm_Link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/Arm_Link_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Arm_Link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/Arm_Link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Arm_Link_cont' type='revolute'>
+      <child>Arm_Link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 0 -1</xyz>
+        <limit>
+          <lower>-1.745</lower>
+          <upper>1.745</upper>
+          <effort>0</effort>
+          <velocity>20</velocity>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Front_Wheel'>
+      <pose frame=''>-0.127 0 -0.086868 0 0 -0.008442</pose>
+      <inertial>
+        <pose frame=''>-0.003311 0 0.003337 0 -0 0</pose>
+        <mass>0.33388</mass>
+        <inertia>
+          <ixx>0.00011765</ixx>
+          <ixy>4.0231e-12</ixy>
+          <ixz>3.047e-06</ixz>
+          <iyy>0.00033015</iyy>
+          <iyz>3.8519e-10</iyz>
+          <izz>0.00033254</izz>
+        </inertia>
+      </inertial>
+      <collision name='Front_Wheel_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/Front_Wheel_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Front_Wheel_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/Front_Wheel.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Front_Wheel_Cont' type='revolute'>
+      <child>Front_Wheel</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>-0.999964 0.008442 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+    <link name='Rear_Wheels_Link'>
+      <pose frame=''>0.18415 0 -0.08635 0 -0 0</pose>
+      <inertial>
+        <pose frame=''>0 -0 0 0 -0 0</pose>
+        <mass>1.1992</mass>
+        <inertia>
+          <ixx>0.001439</ixx>
+          <ixy>-1.7333e-20</ixy>
+          <ixz>-5.5793e-20</ixz>
+          <iyy>0.0023958</iyy>
+          <iyz>1.8973e-20</iyz>
+          <izz>0.001439</izz>
+        </inertia>
+      </inertial>
+      <collision name='Rear_Wheels_Link_collision'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/Rear_Wheels_Link_col.STL</uri>
+          </mesh>
+        </geometry>
+      </collision>
+      <visual name='Rear_Wheels_Link_visual'>
+        <pose frame=''>0 0 0 0 -0 0</pose>
+        <geometry>
+          <mesh>
+            <scale>1 1 1</scale>
+            <uri>model://HEW_test/meshes/Rear_Wheels_Link.STL</uri>
+          </mesh>
+        </geometry>
+      </visual>
+    </link>
+    <joint name='Rear_Wheels_cont' type='revolute'>
+      <child>Rear_Wheels_Link</child>
+      <parent>base_link</parent>
+      <axis>
+        <xyz>0 1 0</xyz>
+        <limit>
+          <lower>-1e+16</lower>
+          <upper>1e+16</upper>
+        </limit>
+        <dynamics>
+          <spring_reference>0</spring_reference>
+          <spring_stiffness>0</spring_stiffness>
+        </dynamics>
+        <use_parent_model_frame>1</use_parent_model_frame>
+      </axis>
+    </joint>
+  </model>
+</sdf>
